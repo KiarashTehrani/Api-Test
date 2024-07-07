@@ -1,0 +1,1111 @@
+{
+	"info": {
+		"_postman_id": "67818566-d303-449c-ba9a-f5eb46be885c",
+		"name": "End To End Senario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Edit Project",
+			"item": [
+				{
+					"name": "Create Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "adf22217-0218-4b93-a754-00a788167fb5",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "12eec85c-cad0-4615-9b3b-af4bfc224dd4",
+								"exec": [
+									"// Array of first names\r",
+									"const firstNames = [\"مهدی\", \"علی\", \"کیارش\", \"حسن\", \"حسین\", \"فرید\", \"سعید\", \"محمد\", \"امیر\", \"دایا\"];\r",
+									"\r",
+									"// Function to generate a random index\r",
+									"function getRandomIndex(max) {\r",
+									"    return Math.floor(Math.random() * max);\r",
+									"}\r",
+									"\r",
+									"// Select a random name from the array\r",
+									"const Title_Project10 = firstNames[getRandomIndex(firstNames.length)];\r",
+									"\r",
+									"// Set the random name as an environment variable\r",
+									"pm.environment.set(\"Title_Project\", Title_Project10);\r",
+									"\r",
+									"//---------------------------random address\r",
+									"\r",
+									"// Arrays of address components\r",
+									"const streetNames = [\"Maple St\", \"Oak St\", \"Pine St\", \"Elm St\", \"Cedar St\"];\r",
+									"const cities = [\"Springfield\", \"Rivertown\", \"Lakeview\", \"Hillside\", \"Brookfield\"];\r",
+									"const states = [\"CA\", \"TX\", \"NY\", \"FL\", \"WA\"];\r",
+									"const zipCodes = [\"90210\", \"73301\", \"10001\", \"33101\", \"98101\"];\r",
+									"\r",
+									"// Function to generate a random index\r",
+									"function getRandomIndex(max) {\r",
+									"    return Math.floor(Math.random() * max);\r",
+									"}\r",
+									"\r",
+									"// Select random components for the address\r",
+									"const streetNumber = Math.floor(Math.random() * 9000) + 1000; // Random number between 1000 and 9999\r",
+									"const streetName = streetNames[getRandomIndex(streetNames.length)];\r",
+									"const city = cities[getRandomIndex(cities.length)];\r",
+									"const state = states[getRandomIndex(states.length)];\r",
+									"const zipCode = zipCodes[getRandomIndex(zipCodes.length)];\r",
+									"\r",
+									"// Combine components into a full address\r",
+									"const randomAddress1 = `${streetNumber} ${streetName}, ${city}, ${state} ${zipCode}`;\r",
+									"\r",
+									"// Set the random address as an environment variable\r",
+									"pm.environment.set(\"randomAddress\", randomAddress1);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "32f1cbf1-d220-4f84-bbcd-8461033330f5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}"
+							},
+							{
+								"key": "cookie",
+								"value": "csrftoken=gHvsxAqWGqeqRLp50j6OROcFiRKkTbtf; prevUrl=%2Fresume; access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwMjI0MjA1LCJpYXQiOjE3MTk2NDgyMDUsImp0aSI6ImNlMDk3YTE4MmY4ZTRjODc4YThlNmZlMDI5YTVhMjY3IiwidXNlcl9pZCI6MzN9.vgRMDF5h1daWJj6y3e6pJErMZKwyTof6VfURyDB0SWM; refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxOTczNDYwNSwiaWF0IjoxNzE5NjQ4MjA1LCJqdGkiOiJhMTlmODAzYzYyYjg0MDNhYjgwNDQ2Y2UyNjM4ZTMzZiIsInVzZXJfaWQiOjMzfQ.vcdhjJRGaJ9bRJ48aRlEVEu2NPe8AYh8ijMD4hlvxuY"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://hamresun.develop.raydadportal.ir/projects/add"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "Pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "Origin",
+								"value": "https://hamresun.develop.raydadportal.ir"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Sec-WebSocket-Key",
+								"value": "ev3Ui6w/BW8nNFTiFuPnHg=="
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "Upgrade",
+								"value": "websocket"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Connection",
+								"value": "Upgrade"
+							},
+							{
+								"key": "Sec-WebSocket-Version",
+								"value": "13"
+							},
+							{
+								"key": "Sec-WebSocket-Extensions",
+								"value": "permessage-deflate; client_max_window_bits"
+							},
+							{
+								"key": "Referer",
+								"value": ""
+							},
+							{
+								"key": "origin",
+								"value": "https://hamresun.develop.raydadportal.ir"
+							},
+							{
+								"key": "purpose",
+								"value": "prefetch"
+							},
+							{
+								"key": "x-middleware-prefetch",
+								"value": "1"
+							},
+							{
+								"key": "x-nextjs-data",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "{{Title_Project}}",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "96",
+									"type": "text"
+								},
+								{
+									"key": "landline_phone",
+									"value": "22594592",
+									"type": "text"
+								},
+								{
+									"key": "license_issuance_date",
+									"value": "۱۴۰۳-۰۴-۱۴",
+									"type": "text"
+								},
+								{
+									"key": "floor_number",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "house_area",
+									"value": "4500",
+									"type": "text"
+								},
+								{
+									"key": "total_area",
+									"value": "6000",
+									"type": "text"
+								},
+								{
+									"key": "owner_national_code",
+									"value": "0020227108",
+									"type": "text"
+								},
+								{
+									"key": "project_status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "creation_status",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "production_license",
+									"value": "256957",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "{{randomAddress}}",
+									"type": "text"
+								},
+								{
+									"key": "file_0",
+									"type": "file",
+									"src": "build-logo1.jpg"
+								}
+							]
+						},
+						"url": "{{Url Hamresun}}/api/job/project/create/"
+					},
+					"response": []
+				},
+				{
+					"name": "List Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bfec1f37-628a-444f-b2c2-6e35c2b62bfd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "cdea20fa-bdc8-4b6f-aa18-8370d5e9b62a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}"
+							},
+							{
+								"key": "cookie",
+								"value": "csrftoken=gHvsxAqWGqeqRLp50j6OROcFiRKkTbtf; prevUrl=%2Fresume; access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwMjI0MjA1LCJpYXQiOjE3MTk2NDgyMDUsImp0aSI6ImNlMDk3YTE4MmY4ZTRjODc4YThlNmZlMDI5YTVhMjY3IiwidXNlcl9pZCI6MzN9.vgRMDF5h1daWJj6y3e6pJErMZKwyTof6VfURyDB0SWM; refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxOTczNDYwNSwiaWF0IjoxNzE5NjQ4MjA1LCJqdGkiOiJhMTlmODAzYzYyYjg0MDNhYjgwNDQ2Y2UyNjM4ZTMzZiIsInVzZXJfaWQiOjMzfQ.vcdhjJRGaJ9bRJ48aRlEVEu2NPe8AYh8ijMD4hlvxuY"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://hamresun.develop.raydadportal.ir/projects/add"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "Pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "Origin",
+								"value": "https://hamresun.develop.raydadportal.ir"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Sec-WebSocket-Key",
+								"value": "ev3Ui6w/BW8nNFTiFuPnHg=="
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "Upgrade",
+								"value": "websocket"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Connection",
+								"value": "Upgrade"
+							},
+							{
+								"key": "Sec-WebSocket-Version",
+								"value": "13"
+							},
+							{
+								"key": "Sec-WebSocket-Extensions",
+								"value": "permessage-deflate; client_max_window_bits"
+							},
+							{
+								"key": "Referer",
+								"value": ""
+							},
+							{
+								"key": "origin",
+								"value": "https://hamresun.develop.raydadportal.ir"
+							},
+							{
+								"key": "purpose",
+								"value": "prefetch"
+							},
+							{
+								"key": "x-middleware-prefetch",
+								"value": "1"
+							},
+							{
+								"key": "x-nextjs-data",
+								"value": "1"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "اند تو اند (پروژه)",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "96",
+									"type": "text"
+								},
+								{
+									"key": "landline_phone",
+									"value": "22594592",
+									"type": "text"
+								},
+								{
+									"key": "license_issuance_date",
+									"value": "۱۴۰۳-۰۴-۱۰",
+									"type": "text"
+								},
+								{
+									"key": "floor_number",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "house_area",
+									"value": "4500",
+									"type": "text"
+								},
+								{
+									"key": "total_area",
+									"value": "6000",
+									"type": "text"
+								},
+								{
+									"key": "owner_national_code",
+									"value": "0020227108",
+									"type": "text"
+								},
+								{
+									"key": "project_status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "creation_status",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "production_license",
+									"value": "256957",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "تهران - بلوار کشاورز",
+									"type": "text"
+								},
+								{
+									"key": "file_0",
+									"type": "file",
+									"src": "build-logo1.jpg"
+								}
+							]
+						},
+						"url": "{{Url Hamresun}}/api/job/project/mine/"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "29764f2a-4e4f-4f78-85e8-e57979bf0d5a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5e0afaf7-196c-42ac-82b0-76c45aa75e55",
+								"exec": [
+									"// Array of first names\r",
+									"const firstNames = [\"مهدی\", \"علی\", \"کیارش\", \"حسن\", \"حسین\", \"فرید\", \"سعید\", \"محمد\", \"امیر\", \"دایا\"];\r",
+									"\r",
+									"// Function to generate a random index\r",
+									"function getRandomIndex(max) {\r",
+									"    return Math.floor(Math.random() * max);\r",
+									"}\r",
+									"\r",
+									"// Select a random name from the array\r",
+									"const Title_Project10 = firstNames[getRandomIndex(firstNames.length)];\r",
+									"\r",
+									"// Set the random name as an environment variable\r",
+									"pm.environment.set(\"Title_Project\", Title_Project10);\r",
+									"\r",
+									"//---------------------------random address\r",
+									"\r",
+									"// Arrays of address components\r",
+									"const streetNames = [\"Maple St\", \"Oak St\", \"Pine St\", \"Elm St\", \"Cedar St\"];\r",
+									"const cities = [\"Springfield\", \"Rivertown\", \"Lakeview\", \"Hillside\", \"Brookfield\"];\r",
+									"const states = [\"CA\", \"TX\", \"NY\", \"FL\", \"WA\"];\r",
+									"const zipCodes = [\"90210\", \"73301\", \"10001\", \"33101\", \"98101\"];\r",
+									"\r",
+									"// Function to generate a random index\r",
+									"function getRandomIndex(max) {\r",
+									"    return Math.floor(Math.random() * max);\r",
+									"}\r",
+									"\r",
+									"// Select random components for the address\r",
+									"const streetNumber = Math.floor(Math.random() * 9000) + 1000; // Random number between 1000 and 9999\r",
+									"const streetName = streetNames[getRandomIndex(streetNames.length)];\r",
+									"const city = cities[getRandomIndex(cities.length)];\r",
+									"const state = states[getRandomIndex(states.length)];\r",
+									"const zipCode = zipCodes[getRandomIndex(zipCodes.length)];\r",
+									"\r",
+									"// Combine components into a full address\r",
+									"const randomAddress1 = `${streetNumber} ${streetName}, ${city}, ${state} ${zipCode}`;\r",
+									"\r",
+									"// Set the random address as an environment variable\r",
+									"pm.environment.set(\"randomAddress\", randomAddress1);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "2514804d-c4ba-430f-a75c-93edc576e160",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}"
+							},
+							{
+								"key": "cookie",
+								"value": "csrftoken=gHvsxAqWGqeqRLp50j6OROcFiRKkTbtf; prevUrl=%2Fresume; access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwMjI0MjA1LCJpYXQiOjE3MTk2NDgyMDUsImp0aSI6ImNlMDk3YTE4MmY4ZTRjODc4YThlNmZlMDI5YTVhMjY3IiwidXNlcl9pZCI6MzN9.vgRMDF5h1daWJj6y3e6pJErMZKwyTof6VfURyDB0SWM; refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxOTczNDYwNSwiaWF0IjoxNzE5NjQ4MjA1LCJqdGkiOiJhMTlmODAzYzYyYjg0MDNhYjgwNDQ2Y2UyNjM4ZTMzZiIsInVzZXJfaWQiOjMzfQ.vcdhjJRGaJ9bRJ48aRlEVEu2NPe8AYh8ijMD4hlvxuY"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://hamresun.develop.raydadportal.ir/projects/edit/269"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "Pragma",
+								"value": "no-cache"
+							},
+							{
+								"key": "Origin",
+								"value": "https://hamresun.develop.raydadportal.ir"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Sec-WebSocket-Key",
+								"value": "+M/mG4kqYY88naVcKWvFNA=="
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "Upgrade",
+								"value": "websocket"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache"
+							},
+							{
+								"key": "Connection",
+								"value": "Upgrade"
+							},
+							{
+								"key": "Sec-WebSocket-Version",
+								"value": "13"
+							},
+							{
+								"key": "Sec-WebSocket-Extensions",
+								"value": "permessage-deflate; client_max_window_bits"
+							},
+							{
+								"key": "if-modified-since",
+								"value": "Sat, 29 Jun 2024 08:36:05 GMT"
+							},
+							{
+								"key": "if-none-match",
+								"value": "\"c5227e7ce664e5af61483f106e07e1b6\""
+							},
+							{
+								"key": "origin",
+								"value": "https://hamresun.develop.raydadportal.ir"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "{{Title_Project}}",
+									"type": "text"
+								},
+								{
+									"key": "landline_phone",
+									"value": "22598526",
+									"type": "text"
+								},
+								{
+									"key": "license_issuance_date",
+									"value": "2025-09-25",
+									"type": "text"
+								},
+								{
+									"key": "floor_number",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "house_area",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "total_area",
+									"value": "7500",
+									"type": "text"
+								},
+								{
+									"key": "owner_national_code",
+									"value": "002045985",
+									"type": "text"
+								},
+								{
+									"key": "project_status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "creation_status",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "{{randomAddress}}",
+									"type": "text"
+								},
+								{
+									"key": "production_license",
+									"value": "456123",
+									"type": "text"
+								},
+								{
+									"key": "kept_files",
+									"value": "190",
+									"type": "text"
+								},
+								{
+									"key": "new_province",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "new_city",
+									"value": "53",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{Url Hamresun}}/api/job/project/{{ProjectId}}/edit/"
+					},
+					"response": []
+				}
+			],
+			"id": "14bc49b1-2768-4c3d-9f1a-1492b53dbdfa"
+		},
+		{
+			"name": "Edit Resume",
+			"item": [
+				{
+					"name": "Create Resume",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88fdcca3-34e1-40fa-ab42-aba8a68a86d1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "0f6708a8-a7ec-4c2e-9549-5d8b1398a5b8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}"
+							},
+							{
+								"key": "cookie",
+								"value": "csrftoken=gHvsxAqWGqeqRLp50j6OROcFiRKkTbtf; prevUrl=%2Fresume; access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwMjM1MjI5LCJpYXQiOjE3MTk2NTkyMjksImp0aSI6ImYyNTgzZGM5ZDY4NTQ5NDdiNzNkNmIyYTBiM2UzYmM0IiwidXNlcl9pZCI6Mzl9.ZiAEXJJIEHZrmhH87nmePOlRcSnWcrpQI3zupNUaV0A; refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxOTc0NTYyOSwiaWF0IjoxNzE5NjU5MjI5LCJqdGkiOiI4YWE0ZDI5MzIxMzU0Mzg4OWQ0MWNhZTdmZGVhZTYyZiIsInVzZXJfaWQiOjM5fQ.XgeCEcG4nlmY1yj8f_xEIHrH9h51Ca9bT0BPfViOCoU"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://hamresun.develop.raydadportal.ir/resume"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "Referer",
+								"value": ""
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "origin",
+								"value": "https://hamresun.develop.raydadportal.ir"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company_name",
+									"value": "اند تو اند (رزومه)",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "96",
+									"type": "text"
+								},
+								{
+									"key": "activity_area",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "company_address",
+									"value": "تهران - بلوار کشاورز",
+									"type": "text"
+								},
+								{
+									"key": "about_us",
+									"value": "شماره تماس 22594592",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][project_id]",
+									"value": "-1",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][project_title]",
+									"value": "رایداد",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][project_address]",
+									"value": "شهرری - میدان نماز",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][start_date]",
+									"value": "1403-04-10",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][end_date]",
+									"value": "1403-04-31",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][file_0]",
+									"type": "file",
+									"src": "build-logo1.jpg"
+								},
+								{
+									"key": "work_experience[0][picture]",
+									"value": "file_[0]",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{Url Hamresun}}/api/profile/create-resume/"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Resume",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2f97fa2f-9fd7-4677-9bfb-3b2938d52e87",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "8022d30d-f2b3-4691-8ce7-f2b9923dc6ab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}"
+							},
+							{
+								"key": "cookie",
+								"value": "csrftoken=gHvsxAqWGqeqRLp50j6OROcFiRKkTbtf; prevUrl=%2Fresume; access=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwMjM1MjI5LCJpYXQiOjE3MTk2NTkyMjksImp0aSI6ImYyNTgzZGM5ZDY4NTQ5NDdiNzNkNmIyYTBiM2UzYmM0IiwidXNlcl9pZCI6Mzl9.ZiAEXJJIEHZrmhH87nmePOlRcSnWcrpQI3zupNUaV0A; refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxOTc0NTYyOSwiaWF0IjoxNzE5NjU5MjI5LCJqdGkiOiI4YWE0ZDI5MzIxMzU0Mzg4OWQ0MWNhZTdmZGVhZTYyZiIsInVzZXJfaWQiOjM5fQ.XgeCEcG4nlmY1yj8f_xEIHrH9h51Ca9bT0BPfViOCoU"
+							},
+							{
+								"key": "priority",
+								"value": "u=1, i"
+							},
+							{
+								"key": "referer",
+								"value": "https://hamresun.develop.raydadportal.ir/resume"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "origin",
+								"value": "https://hamresun.develop.raydadportal.ir"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company_name",
+									"value": "اند تو اند (رزومه نهایی)",
+									"type": "text"
+								},
+								{
+									"key": "province",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "82",
+									"type": "text"
+								},
+								{
+									"key": "activity_area",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "company_address",
+									"value": "تهران - میدان فاطمی",
+									"type": "text"
+								},
+								{
+									"key": "about_us",
+									"value": "آدرس",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][project_id]",
+									"value": "59",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][project_title]",
+									"value": "رایداد کوثر",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][project_address]",
+									"value": "شهرری",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][start_date]",
+									"value": "1402-04-10",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][end_date]",
+									"value": "1403-04-31",
+									"type": "text"
+								},
+								{
+									"key": "work_experience[0][kept_files]",
+									"value": "192",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{Url Hamresun}}/api/profile/resume/edit/"
+					},
+					"response": []
+				}
+			],
+			"id": "68ab0f8e-279d-4dfb-8b72-50013a3067ac"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d8f0688e-5c8b-45ef-aa0a-faa6db6a4b7b",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "527fc5ba-54c4-4d31-b13b-653e7a71ce96",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
